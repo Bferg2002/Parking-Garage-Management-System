@@ -32,6 +32,7 @@ abstract class Vehicle {
   - licensePlate: String
   - model: string
   - brand: String
+  - color: String
   - year: int
   - isRegistered: boolean
   + displayVehicleInfo(): void {abstract}
