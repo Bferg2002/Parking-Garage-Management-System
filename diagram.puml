@@ -28,11 +28,11 @@ class Employee {
   + checkRegistration(vehicle: Vehicle): boolean
 }
 
-class Vehicle {
+abstract class Vehicle {
   - licensePlate: String
-  - model
-  - brand
-  - year
+  - model: string
+  - brand: String
+  - year: int
   - isRegistered: boolean
   + displayVehicleInfo(): void {abstract}
 }
