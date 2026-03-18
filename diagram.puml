@@ -1,5 +1,9 @@
 @startuml
+abstract class Person{
+-name: String
 
+
+}
 class User {
   -userId: int
   -name: String
@@ -52,6 +56,8 @@ class Account {
 }
 
 ' Relationships
+Person--> User
+Person-->Employee
 User --> Account
 Account --> Vehicle
 Employee --> ParkingGarage
