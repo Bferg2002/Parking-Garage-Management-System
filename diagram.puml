@@ -41,7 +41,7 @@ class Car extends Vehicle{
     + displayVehicleInfo():void
 }
 
-class Moterbike extends Vehicle{
+class Motorbike extends Vehicle{
     + displayVehicleInfo(): void
 }
 
@@ -70,14 +70,13 @@ class ParkingRecord {
 Person <|-- User
 Person <|-- Employee
 
-' Menu connects to the three active actors
+' main.java.MainMenu.Menu connects to the three active actors
 Menu --> User
 Menu --> Employee
 Menu --> ParkingGarage
 
 ' Original relationships
-User --> Account
-Account --> Vehicle
+User --> Vehicle
 Employee --> ParkingGarage
 ParkingGarage --> Vehicle
 Vehicle --> ParkingRecord
