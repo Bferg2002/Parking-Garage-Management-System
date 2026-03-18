@@ -1,0 +1,20 @@
+📋 Backlog Items (Derived from Your Tasks)
+-Core System Classes
+ -Create parking garage class
+ -Create parking record
+ -Create vehicle class
+ -Create car class
+ -Create motorbike class
+ -These define the core domain model of the system.
+ -User & People Management
+ -Create user class
+ -Create employee class
+ -Create abstract person class
+ -These handle user roles and relationships in the system.
+ -System Interface / Interaction
+-Create menu class
+ -Responsible for user interaction or UI navigation logic.
+ -Design & Documentation
+-Finish UML Diagram
+-Create User Stories
+ -These support planning, communication, and system design clarity.
