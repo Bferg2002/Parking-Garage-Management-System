@@ -13,7 +13,7 @@ public class MotorBike extends Vehicle {
     }
 @Override
     public void displayTimeInfo(){
-
+    System.out.println("Time spent: " + getTimeSpent()+ "\nTime left: " + getTimeLeft());
 }
 
 }
