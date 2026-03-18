@@ -66,7 +66,7 @@ class Account {
 Person <|-- User
 Person <|-- Employee
 
-' Menu connects to the three active actors
+' main.java.MainMenu.Menu connects to the three active actors
 Menu --> User
 Menu --> Employee
 Menu --> ParkingGarage
