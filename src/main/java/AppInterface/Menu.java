@@ -1,4 +1,4 @@
-package main.java.AppInterface;
+package AppInterface;
 
 public class Menu {
 }

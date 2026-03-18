@@ -1,4 +1,4 @@
-package main.java.VehicleSorting;
+package VehicleSorting;
 
 public abstract class Vehicle {
 }
