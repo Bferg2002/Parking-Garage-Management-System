@@ -13,36 +13,45 @@ class Menu {
 
 class User {
   - userId: int
-  - name: String
   - email: String
+  - vehicles: List<Vehicle>
   + registerVehicle(vehicle: Vehicle)
-  + updateVehicle(vehicle: Vehicle)
+  + updateVehicleInfo(vehicle: Vehicle)
   + viewAvailableSpaces(): int
+  + removeVehicleFromAccount(vehicle: Vehicle)
 }
 
 class Employee {
   - employeeId: int
-  - name: String
   + trackEntry(vehicle: Vehicle)
   + trackExit(vehicle: Vehicle)
-  + calculateExpense(vehicle: Vehicle): double
   + checkRegistration(vehicle: Vehicle): boolean
 }
 
 class Vehicle {
-  - vehicleId: int
   - licensePlate: String
+  - model
+  - brand
+  - year
   - isRegistered: boolean
-  - entryTime: DateTime
-  - exitTime: DateTime
-  + calculateParkingDuration(): double
+  + displayVehicleInfo(): void {abstract}
 }
 
+class Car extends Vehicle{
+    + displayVehicleInfo():void
+}
+
+class Moterbike extends Vehicle{
+    + displayVehicleInfo(): void
+}
+
+
 class ParkingGarage {
-  - garageId: int
-  - capacity: int
+  - vehicles:ArrayList<Vehicle>
+  - availableSpaces: int
   - occupiedSpaces: int
   + getAvailableSpaces(): int
+  + getOccupiedSpaces(): int
   + parkVehicle(vehicle: Vehicle)
   + removeVehicle(vehicle: Vehicle)
 }
@@ -52,14 +61,9 @@ class ParkingRecord {
   - entryTime: DateTime
   - exitTime: DateTime
   - cost: double
-  + calculateCost(): double
-}
+  + calculateParkingDuration(): double
+  + calculateExpense(vehicle: Vehicle): double
 
-class Account {
-  - accountId: int
-  - vehicles: List<Vehicle>
-  + addVehicle(vehicle: Vehicle)
-  + removeVehicle(vehicle: Vehicle)
 }
 
 ' Inheritance
