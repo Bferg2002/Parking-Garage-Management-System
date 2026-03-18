@@ -1,63 +1,77 @@
 @startuml
-abstract class Person{
--name: String
-
-
+abstract class Person {
+  - name: String
 }
+
+class Menu {
+  - user: User
+  - employee: Employee
+  - garage: ParkingGarage
+  + start()
+  + displayOptions()
+}
+
 class User {
-  -userId: int
-  -name: String
-  -email: String
-  +registerVehicle(vehicle: Vehicle)
-  +updateVehicle(vehicle: Vehicle)
-  +viewAvailableSpaces(): int
+  - userId: int
+  - name: String
+  - email: String
+  + registerVehicle(vehicle: Vehicle)
+  + updateVehicle(vehicle: Vehicle)
+  + viewAvailableSpaces(): int
 }
 
 class Employee {
-  -employeeId: int
-  -name: String
-  +trackEntry(vehicle: Vehicle)
-  +trackExit(vehicle: Vehicle)
-  +calculateExpense(vehicle: Vehicle): double
-  +checkRegistration(vehicle: Vehicle): boolean
+  - employeeId: int
+  - name: String
+  + trackEntry(vehicle: Vehicle)
+  + trackExit(vehicle: Vehicle)
+  + calculateExpense(vehicle: Vehicle): double
+  + checkRegistration(vehicle: Vehicle): boolean
 }
 
 class Vehicle {
-  -vehicleId: int
-  -licensePlate: String
-  -isRegistered: boolean
-  -entryTime: DateTime
-  -exitTime: DateTime
-  +calculateParkingDuration(): double
+  - vehicleId: int
+  - licensePlate: String
+  - isRegistered: boolean
+  - entryTime: DateTime
+  - exitTime: DateTime
+  + calculateParkingDuration(): double
 }
 
 class ParkingGarage {
-  -garageId: int
-  -capacity: int
-  -occupiedSpaces: int
-  +getAvailableSpaces(): int
-  +parkVehicle(vehicle: Vehicle)
-  +removeVehicle(vehicle: Vehicle)
+  - garageId: int
+  - capacity: int
+  - occupiedSpaces: int
+  + getAvailableSpaces(): int
+  + parkVehicle(vehicle: Vehicle)
+  + removeVehicle(vehicle: Vehicle)
 }
 
 class ParkingRecord {
-  -recordId: int
-  -entryTime: DateTime
-  -exitTime: DateTime
-  -cost: double
-  +calculateCost(): double
+  - recordId: int
+  - entryTime: DateTime
+  - exitTime: DateTime
+  - cost: double
+  + calculateCost(): double
 }
 
 class Account {
-  -accountId: int
-  -vehicles: List<Vehicle>
-  +addVehicle(vehicle: Vehicle)
-  +removeVehicle(vehicle: Vehicle)
+  - accountId: int
+  - vehicles: List<Vehicle>
+  + addVehicle(vehicle: Vehicle)
+  + removeVehicle(vehicle: Vehicle)
 }
 
-' Relationships
-Person--> User
-Person-->Employee
+' Inheritance
+Person <|-- User
+Person <|-- Employee
+
+' Menu connects to the three active actors
+Menu --> User
+Menu --> Employee
+Menu --> ParkingGarage
+
+' Original relationships
 User --> Account
 Account --> Vehicle
 Employee --> ParkingGarage
