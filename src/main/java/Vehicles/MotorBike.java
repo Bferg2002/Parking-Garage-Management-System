@@ -1,4 +1,4 @@
-package VehicleSorting;
+package Vehicles;
 
 public class MotorBike extends Vehicle {
     public MotorBike(String licencePlate, String model, String brand, int year, String color, boolean isRegistered) {

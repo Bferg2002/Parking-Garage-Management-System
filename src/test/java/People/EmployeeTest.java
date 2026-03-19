@@ -1,0 +1,12 @@
+package People;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class EmployeeTest {
+    @Test
+    public void testEmployeeName() {
+
+    }
+
+}//ends class
+

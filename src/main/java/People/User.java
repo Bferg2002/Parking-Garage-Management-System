@@ -1,4 +1,6 @@
-import VehicleSorting.Vehicle;
+package People;
+
+import Vehicles.Vehicle;
 import java.util.ArrayList;
 
 //Class for a person using the parking garage app

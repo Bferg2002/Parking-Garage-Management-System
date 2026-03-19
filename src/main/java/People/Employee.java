@@ -1,6 +1,10 @@
-// Employee class extending Person
+package People;
+
+import Vehicles.Vehicle;
+
+// People.Employee class extending People.Person
 public class Employee extends Person {
-    // Employee class extending Person
+    // People.Employee class extending People.Person
         private int employeeId;
         private String role;
 
@@ -50,8 +54,6 @@ public class Employee extends Person {
             System.out.println("Name: " + super.getName());
             System.out.println("Role: " + getRole());
             System.out.println("EmployeeId: " + getEmployeeId());
-
-
         }
     }
 

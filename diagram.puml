@@ -34,6 +34,7 @@ abstract class Vehicle {
   - brand: String
   - color: String
   - year: int
+  - type: String
   - isRegistered: boolean
   + displayVehicleInfo(): void {abstract}
 }
@@ -57,14 +58,12 @@ class ParkingGarage {
   + removeVehicle(vehicle: Vehicle)
 }
 
-class ParkingRecord {
-  - recordId: int
-  - entryTime: DateTime
-  - exitTime: DateTime
+class Finance {
   - cost: double
   + calculateParkingDuration(): double
   + calculateExpense(vehicle: Vehicle): double
-
+  + setCost(): void
+  +getCost():void
 }
 
 ' Inheritance

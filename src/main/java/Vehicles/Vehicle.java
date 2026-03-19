@@ -1,4 +1,4 @@
-package VehicleSorting;
+package Vehicles;
 
 public abstract class Vehicle {
 private String licensePlate;
