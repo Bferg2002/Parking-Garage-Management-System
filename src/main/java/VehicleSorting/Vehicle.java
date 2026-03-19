@@ -8,6 +8,7 @@ private int year;
 private String color;
 private boolean isRegistered;
 
+
     public Vehicle(String licensePlate, String model, String brand, int year,  String color, boolean isRegistered) {
         this.licensePlate = licensePlate;
         this.model = model;
