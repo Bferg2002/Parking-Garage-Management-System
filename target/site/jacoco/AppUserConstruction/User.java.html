@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tdd-lab-design-your-own-object</a> &gt; <a href="index.source.html" class="el_package">AppUserConstruction</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package AppUserConstruction;
+
+import VehicleSorting.Vehicle;
+import java.util.ArrayList;
+
+//Class for a person using the parking garage app
+public class User {
+    private int userId;     //the user's id
+    private String email;       //the user's email
+    private ArrayList&lt;Vehicle&gt; vehicles;    //the list of vehicles that the user has tied to their account
+
+    //Constructor that creates a new user object
+<span class="nc" id="L13">    public User(int userId, String email, ArrayList&lt;Vehicle&gt; vehicles) {</span>
+<span class="nc" id="L14">        this.userId = userId;</span>
+<span class="nc" id="L15">        this.email = email;</span>
+<span class="nc" id="L16">        vehicles = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L17">    }</span>
+
+    //Returns the user's id
+    public int getUserId() {
+<span class="nc" id="L21">        return userId;</span>
+    }
+
+    //Updates the user's id
+    public void setUserId(int userId) {
+<span class="nc" id="L26">        this.userId = userId;</span>
+<span class="nc" id="L27">    }</span>
+
+    //Returns the user's email
+    public String getEmail() {
+<span class="nc" id="L31">        return email;</span>
+    }
+
+    //Updates the user's email
+    public void setEmail(String email) {
+<span class="nc" id="L36">        this.email = email;</span>
+<span class="nc" id="L37">    }</span>
+
+    //Adds a vehicle to the user's account
+    public void registerVehicle(Vehicle vehicle){
+<span class="nc" id="L41">        vehicles.add(vehicle);</span>
+<span class="nc" id="L42">    }</span>
+
+    //Removes a vehicle from the user's account
+    public void removeVehicleFromAccount(Vehicle vehicle){
+<span class="nc" id="L46">        vehicles.remove(vehicle);</span>
+<span class="nc" id="L47">    }</span>
+
+    //Updates the vehicle color and license plate information
+    public void updateVehicleInfo(Vehicle vehicle, String licensePlate, String color){
+      //  vehicle.setColor(color);
+        //  vehicle.setLicensePlate(licensePlate);
+<span class="nc" id="L53">    }</span>
+
+    //Displays all the vehicles that the user has registered
+    public void viewAllRegisteredVehicles() {
+        /*
+        for (Vehicle vehicle : vehicles){
+            System.out.println(&quot;*************************&quot;);
+            System.out.println(&quot;Brand: &quot; + vehicle.getBrand() + &quot;Model: &quot; + vehicle.getModel() +
+                    &quot;Year: &quot; + vehicle.getYear() + &quot;Color: &quot; + vehicle.getColor());
+        }
+         */
+<span class="nc" id="L64">    }</span>
+
+    //Displays the amount of spaces that are currently available in the garage
+    public void viewAvailableSpaces(int availableSpaces){
+<span class="nc" id="L68">        System.out.println(&quot;There are &quot; + availableSpaces + &quot; parking spaces left in the garage at this current time.&quot;);</span>
+<span class="nc" id="L69">    }</span>
+
+}//ends class
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
