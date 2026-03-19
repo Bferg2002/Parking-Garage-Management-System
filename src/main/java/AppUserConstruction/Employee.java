@@ -1,9 +1,11 @@
-// Employee class extending Person
+package AppUserConstruction;
+
+// AppUserConstruction.Employee class extending AppUserConstruction.Person
 public class Employee extends Person {
-    // Employee class extending Person
+    // AppUserConstruction.Employee class extending AppUserConstruction.Person
         private int employeeId;
         private String role;
-
+        Make a boolean "isRegistered" Variable here
         // Constructor
         public Employee(int employeeId, String name) {
             super(name); // call parent constructor
