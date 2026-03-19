@@ -13,69 +13,66 @@ class Menu {
 
 class User {
   - userId: int
-  - name: String
   - email: String
+  - vehicles: List<Vehicle>
   + registerVehicle(vehicle: Vehicle)
-  + updateVehicle(vehicle: Vehicle)
+  + updateVehicleInfo(vehicle: Vehicle)
   + viewAvailableSpaces(): int
+  + removeVehicleFromAccount(vehicle: Vehicle)
 }
 
 class Employee {
+-isRegistered: boolean
   - employeeId: int
-  - name: String
   + trackEntry(vehicle: Vehicle)
   + trackExit(vehicle: Vehicle)
-  + calculateExpense(vehicle: Vehicle): double
   + checkRegistration(vehicle: Vehicle): boolean
 }
 
-class Vehicle {
-  - vehicleId: int
+abstract class Vehicle {
   - licensePlate: String
-  - isRegistered: boolean
-  - entryTime: DateTime
-  - exitTime: DateTime
-  + calculateParkingDuration(): double
+  - model: string
+  - brand: String
+  - color: String
+  - year: int
+  + displayVehicleInfo(): void {abstract}
 }
+
+class Car extends Vehicle{
+    + displayVehicleInfo():void
+}
+
+class Motorbike extends Vehicle{
+    + displayVehicleInfo(): void
+}
+
 
 class ParkingGarage {
-  - garageId: int
-  - capacity: int
+  - vehicles:ArrayList<Vehicle>
+  - availableSpaces: int
   - occupiedSpaces: int
+  - cost: double
   + getAvailableSpaces(): int
+  + getOccupiedSpaces(): int
   + parkVehicle(vehicle: Vehicle)
   + removeVehicle(vehicle: Vehicle)
+  + calculateExpense(vehicle: Vehicle): double
 }
 
-class ParkingRecord {
-  - recordId: int
-  - entryTime: DateTime
-  - exitTime: DateTime
-  - cost: double
-  + calculateCost(): double
-}
-
-class Account {
-  - accountId: int
-  - vehicles: List<Vehicle>
-  + addVehicle(vehicle: Vehicle)
-  + removeVehicle(vehicle: Vehicle)
-}
 
 ' Inheritance
 Person <|-- User
 Person <|-- Employee
 
-' Menu connects to the three active actors
+' main.java.MainMenu.Menu connects to the three active actors
 Menu --> User
 Menu --> Employee
 Menu --> ParkingGarage
 
 ' Original relationships
-User --> Account
-Account --> Vehicle
+User --> Vehicle
 Employee --> ParkingGarage
 ParkingGarage --> Vehicle
-Vehicle --> ParkingRecord
+
 
 @enduml
