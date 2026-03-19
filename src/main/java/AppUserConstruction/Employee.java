@@ -3,6 +3,8 @@ package AppUserConstruction;
 import VehicleSorting.Vehicle;
 
 // AppUserConstruction.Employee class extending AppUserConstruction.Person
+
+// Employee class extending Person
 public class Employee extends Person {
     // AppUserConstruction.Employee class extending AppUserConstruction.Person
         private int employeeId;
