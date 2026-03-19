@@ -1,3 +1,5 @@
+import VehicleSorting.Vehicle;
+
 // Employee class extending Person
 public class Employee extends Person {
     // Employee class extending Person
