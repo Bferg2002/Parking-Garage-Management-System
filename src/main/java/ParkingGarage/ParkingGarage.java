@@ -3,8 +3,6 @@ package ParkingGarage;
 import VehicleSorting.Vehicle;
 
 public class ParkingGarage {
-
-    int test;
 /*
     //This is an array of parking spots that can hold any type of vehicle object.
     private final ParkingSpot<? extends Vehicle>[] spots;

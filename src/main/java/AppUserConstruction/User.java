@@ -1,3 +1,5 @@
+package AppUserConstruction;
+
 import VehicleSorting.Vehicle;
 import java.util.ArrayList;
 
@@ -62,7 +64,7 @@ public class User {
     }
 
     //Displays the amount of spaces that are currently available in the garage
-    public void viewAvailibleSpaces(int availableSpaces){
+    public void viewAvailableSpaces(int availableSpaces){
         System.out.println("There are " + availableSpaces + " parking spaces left in the garage at this current time.");
     }
 

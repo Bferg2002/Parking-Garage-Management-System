@@ -1,11 +1,14 @@
+package AppUserConstruction;
+
 import VehicleSorting.Vehicle;
+
+// AppUserConstruction.Employee class extending AppUserConstruction.Person
 
 // Employee class extending Person
 public class Employee extends Person {
-    // Employee class extending Person
+    // AppUserConstruction.Employee class extending AppUserConstruction.Person
         private int employeeId;
         private String role;
-
         // Constructor
         public Employee(int employeeId, String name) {
             super(name); // call parent constructor
