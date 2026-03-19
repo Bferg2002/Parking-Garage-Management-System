@@ -22,7 +22,6 @@ class User {
 }
 
 class Employee {
--isRegistered: boolean
   - employeeId: int
   + trackEntry(vehicle: Vehicle)
   + trackExit(vehicle: Vehicle)
@@ -35,6 +34,8 @@ abstract class Vehicle {
   - brand: String
   - color: String
   - year: int
+  - type: String
+  - isRegistered: boolean
   + displayVehicleInfo(): void {abstract}
 }
 
@@ -51,14 +52,19 @@ class ParkingGarage {
   - vehicles:ArrayList<Vehicle>
   - availableSpaces: int
   - occupiedSpaces: int
-  - cost: double
   + getAvailableSpaces(): int
   + getOccupiedSpaces(): int
   + parkVehicle(vehicle: Vehicle)
   + removeVehicle(vehicle: Vehicle)
-  + calculateExpense(vehicle: Vehicle): double
 }
 
+class Finance {
+  - cost: double
+  + calculateParkingDuration(): double
+  + calculateExpense(vehicle: Vehicle): double
+  + setCost(): void
+  +getCost():void
+}
 
 ' Inheritance
 Person <|-- User
@@ -73,6 +79,6 @@ Menu --> ParkingGarage
 User --> Vehicle
 Employee --> ParkingGarage
 ParkingGarage --> Vehicle
-
+Vehicle --> ParkingRecord
 
 @enduml
