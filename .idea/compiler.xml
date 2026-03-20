@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="26q1-team4" />
+        <module name="tdd-lab-design-your-own-object" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="26q1-team4" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
