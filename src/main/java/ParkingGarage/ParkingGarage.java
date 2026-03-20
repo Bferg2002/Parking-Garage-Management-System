@@ -1,8 +1,12 @@
 package ParkingGarage;
 
+import VehicleSorting.Car;
+import VehicleSorting.MotorBike;
+import VehicleSorting.SUV;
 import VehicleSorting.Vehicle;
 
 public class ParkingGarage {
+
     //This is an array of parking spots that can hold any type of vehicle object.
     private final ParkingSpot<? extends Vehicle>[] spots;
 
@@ -122,16 +126,15 @@ public class ParkingGarage {
 //        }
 //        return suvOccupiedSpaces;
 //    }
-//public void parkVehicle(Vehicle[] spots, Vehicle vehicle) {
-//    for (int i = 0; i < spots.length; i++) {
-//        if (spots[i] == null) {
-//            spots[i] = vehicle;
-//            System.out.println("Vehicle with licence plate #" + vehicle.getLicensePlate() + " has been parked at spot #" + getParkingSpotNumber());
-//            break;
-//        }else System.out.println("Lot is full");
-//    }
-//}
-
+public void parkVehicle(Vehicle[] spots, Vehicle vehicle) {
+    for (int i = 0; i < spots.length; i++) {
+        if (spots[i] == null) {
+            spots[i] = vehicle;
+            //System.out.println("Vehicle with licence plate #" + vehicle.getLicensePlate() + " has been parked at spot #" + getParkingSpotNumber());
+            break;
+        }else System.out.println("Lot is full");
+    }
+}
 
 
 }//ends class
