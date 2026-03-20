@@ -3,7 +3,7 @@ package VehicleSorting;
 public class Truck extends Vehicle{
     public Truck(String licencePlate, String model, String brand, int year, String color, double timeSpent, double timeLeft) {
 
-        super(licencePlate, model, brand, year, color, timeSpent, timeLeft);
+        super(licencePlate, model, brand, year, color, timeSpent, timeLeft, "Truck");
     }
 
     @Override
