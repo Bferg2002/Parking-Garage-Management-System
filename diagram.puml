@@ -1,84 +1,211 @@
-@startuml
+@startuml ParkingGarageManager
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+skinparam ArrowColor #555555
+skinparam ClassBorderColor #555555
+
+' =====================
+' ABSTRACT: PERSON
+' =====================
+
 abstract class Person {
   - name: String
+  + getName(): String
+  + displayRole(): void {abstract}
 }
 
-class Menu {
-  - user: User
-  - employee: Employee
-  - garage: ParkingGarage
-  + start()
-  + displayOptions()
+' =====================
+' EMPLOYEE
+' =====================
+
+class Employee {
+  - employeeId: int
+  - role: String
+  + getEmployeeId(): int
+  + getRole(): String
+  + setRole(role: String): void
+  + trackEntry(vehicle: Vehicle): void
+  + trackExit(vehicle: Vehicle): void
+  + checkRegistration(vehicle: Vehicle): boolean
+  + calculateExpense(vehicle: Vehicle): double
+  + displayRole(): void
 }
+
+' =====================
+' USER
+' =====================
 
 class User {
   - userId: int
   - email: String
   - vehicles: List<Vehicle>
-  + registerVehicle(vehicle: Vehicle)
-  + updateVehicleInfo(vehicle: Vehicle)
+  + getUserId(): int
+  + getEmail(): String
+  + registerVehicle(vehicle: Vehicle): void
+  + updateVehicleInfo(vehicle: Vehicle): void
+  + removeVehicleFromAccount(vehicle: Vehicle): void
   + viewAvailableSpaces(): int
-  + removeVehicleFromAccount(vehicle: Vehicle)
+  + displayRole(): void
 }
 
-class Employee {
-  - employeeId: int
-  + trackEntry(vehicle: Vehicle)
-  + trackExit(vehicle: Vehicle)
-  + checkRegistration(vehicle: Vehicle): boolean
-}
+' =====================
+' ABSTRACT: VEHICLE
+' =====================
 
 abstract class Vehicle {
   - licensePlate: String
-  - model: string
+  - model: String
   - brand: String
-  - color: String
   - year: int
+  - color: String
   - type: String
   - isRegistered: boolean
+  - timeSpent: double
+  - timeLeft: double
+  + getLicensePlate(): String
+  + getModel(): String
+  + getBrand(): String
+  + getYear(): int
+  + getColor(): String
+  + getType(): String
+  + isRegistered(): boolean
+  + getTimeSpent(): double
+  + getTimeLeft(): double
+  + setLicensePlate(plate: String): void
+  + setRegistered(registered: boolean): void
+  + setType(type: String): void
+  + setTimeSpent(time: double): void
+  + setTimeLeft(time: double): void
   + displayVehicleInfo(): void {abstract}
+  + displayTimeInfo(): void {abstract}
 }
 
-class Car extends Vehicle{
-    + displayVehicleInfo():void
+' =====================
+' VEHICLE CHILDREN
+' =====================
+
+class Car {
+  + displayVehicleInfo(): void
+  + displayTimeInfo(): void
 }
 
-class Motorbike extends Vehicle{
-    + displayVehicleInfo(): void
+class Motorbike {
+  + displayVehicleInfo(): void
+  + displayTimeInfo(): void
 }
 
+class SUV {
+  + displayVehicleInfo(): void
+  + displayTimeInfo(): void
+}
+
+class Truck {
+  + displayVehicleInfo(): void
+  + displayTimeInfo(): void
+}
+
+' =====================
+' PARKING SPOT (Generic)
+' =====================
+
+class "ParkingSpot<T extends Vehicle>" {
+  - vehicle: T
+  - type: String
+  + ParkingSpot(type: String)
+  + isEmpty(): boolean
+  + canFit(vehicle: Vehicle): boolean
+  + park(vehicle: Vehicle): void
+  + removeVehicle(): void
+  + getVehicle(): T
+  + getType(): String
+}
+
+' =====================
+' PARKING GARAGE
+' =====================
 
 class ParkingGarage {
-  - vehicles:ArrayList<Vehicle>
-  - availableSpaces: int
-  - occupiedSpaces: int
-  + getAvailableSpaces(): int
-  + getOccupiedSpaces(): int
-  + parkVehicle(vehicle: Vehicle)
-  + removeVehicle(vehicle: Vehicle)
+  - spots: ParkingSpot[]
+  - carOccupiedSpaces: int
+  - motoOccupiedSpaces: int
+  - suvOccupiedSpaces: int
+  - truckOccupiedSpaces: int
+  + ParkingGarage()
+  + parkVehicle(vehicle: Vehicle): void
+  + removeVehicle(licensePlate: String): void
+  + getAvailableSpaces(type: String): int
+  + getOccupiedSpaces(type: String): int
+  + printCurrentVehiclesInLot(): void
 }
 
-class Finance {
+' =====================
+' PARKING RECORD
+' =====================
+
+class ParkingRecord {
+  - recordId: int
+  - entryTime: LocalDateTime
+  - exitTime: LocalDateTime
   - cost: double
   + calculateParkingDuration(): double
   + calculateExpense(vehicle: Vehicle): double
-  + setCost(): void
-  +getCost():void
 }
 
-' Inheritance
-Person <|-- User
-Person <|-- Employee
+' =====================
+' MENU
+' =====================
 
-' main.java.MainMenu.Menu connects to the three active actors
+class Menu {
+  - input: Scanner
+  - user: User
+  - employee: Employee
+  - garage: ParkingGarage
+  + start(): void
+  + displayOptions(): void
+  + displayCustomerMenu(): void
+  + displayEmployeeMenu(): void
+}
+
+' =====================
+' CUSTOM EXCEPTIONS
+' =====================
+
+class GarageFullException {
+  + GarageFullException(message: String)
+}
+
+class VehicleNotFoundException {
+  + VehicleNotFoundException(message: String)
+}
+
+class InvalidVehicleTypeException {
+  + InvalidVehicleTypeException(message: String)
+}
+
+' =====================
+' INHERITANCE
+' =====================
+
+Person <|-- Employee
+Person <|-- User
+Vehicle <|-- Car
+Vehicle <|-- Motorbike
+Vehicle <|-- SUV
+Vehicle <|-- Truck
+
+' =====================
+' ASSOCIATIONS
+' =====================
+
 Menu --> User
 Menu --> Employee
 Menu --> ParkingGarage
-
-' Original relationships
-User --> Vehicle
 Employee --> ParkingGarage
-ParkingGarage --> Vehicle
+Employee --> Vehicle
+User --> Vehicle
+ParkingGarage --> "ParkingSpot<T extends Vehicle>"
+"ParkingSpot<T extends Vehicle>" --> Vehicle
 Vehicle --> ParkingRecord
 
 @enduml

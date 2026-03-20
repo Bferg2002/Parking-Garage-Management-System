@@ -8,7 +8,7 @@ public class Truck extends Vehicle{
 
     @Override
     public void displayVehicleInfo(){
-        System.out.println("Truck Id: " + getLicensePlate() + "\n Truck  Model: " + getModel() + "\n Truck  Brand: " + getBrand()
+        System.out.println("Vehicle type: " + getType() + "\n Truck Id: " + getLicensePlate() + "\n  Model: " + getModel() + "\n  Brand: " + getBrand()
                 + "\nTruck  Year: " + getYear() + "\nTruck Color: " + getColor());
     }
     @Override

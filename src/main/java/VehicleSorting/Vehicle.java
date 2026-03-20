@@ -8,7 +8,8 @@ private int year;
 private String color;
 private double timeSpent;
 private double timeLeft;
-    public Vehicle(String licensePlate, String model, String brand, int year,  String color, double timeSpent, double timeLeft) {
+private String type;
+    public Vehicle(String licensePlate, String model, String brand, int year,  String color, double timeSpent, double timeLeft, String type) {
         this.licensePlate = licensePlate;
         this.model = model;
         this.brand = brand;
@@ -16,6 +17,11 @@ private double timeLeft;
         this.color = color;
         this.timeSpent = timeSpent;
         this.timeLeft = timeLeft;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public double getTimeLeft() {
@@ -52,6 +58,10 @@ private double timeLeft;
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setTimeSpent(double timeSpent) {
