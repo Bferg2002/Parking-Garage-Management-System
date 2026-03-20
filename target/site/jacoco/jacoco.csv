@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+tdd-lab-design-your-own-object,default,Main,4,0,0,0,2,0,2,0,2,0
+tdd-lab-design-your-own-object,AppInterface,Menu,3,0,0,0,1,0,1,0,1,0
+tdd-lab-design-your-own-object,ParkingGarage,ParkingGarage,3,0,0,0,1,0,1,0,1,0
+tdd-lab-design-your-own-object,VehicleSorting,Vehicle,61,0,0,0,24,0,12,0,12,0
+tdd-lab-design-your-own-object,VehicleSorting,Car,32,0,0,0,7,0,3,0,3,0
+tdd-lab-design-your-own-object,VehicleSorting,SUV,32,0,0,0,7,0,3,0,3,0
+tdd-lab-design-your-own-object,VehicleSorting,Truck,32,0,0,0,7,0,3,0,3,0
+tdd-lab-design-your-own-object,VehicleSorting,MotorBike,32,0,0,0,7,0,3,0,3,0
+tdd-lab-design-your-own-object,AppUserConstruction,User,46,0,0,0,19,0,10,0,10,0
+tdd-lab-design-your-own-object,AppUserConstruction,Person,0,9,0,0,0,4,0,2,0,2
+tdd-lab-design-your-own-object,AppUserConstruction,Employee,0,53,0,0,0,19,0,10,0,10
