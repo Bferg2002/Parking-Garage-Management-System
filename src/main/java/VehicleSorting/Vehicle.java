@@ -8,6 +8,7 @@ private int year;
 private String color;
 private double timeSpent;
 private double timeLeft;
+
     public Vehicle(String licensePlate, String model, String brand, int year,  String color, double timeSpent, double timeLeft) {
         this.licensePlate = licensePlate;
         this.model = model;
