@@ -1,5 +1,8 @@
 package ParkingGarage;
 
+import VehicleSorting.Car;
+import VehicleSorting.MotorBike;
+import VehicleSorting.SUV;
 import VehicleSorting.Vehicle;
 
 public class ParkingGarage {
@@ -96,44 +99,42 @@ public class ParkingGarage {
     }
 
 
-    public int getOccupiedCarSpaces(Car[] car) {
-        for (int i = 0; i<car.length;i++){
-            if (car[i]==null) {
-                System.out.println("Lot is empty");
-            }else if(car[i]!=null)
-                carOccupiedSpaces++;
-            }
-        return carOccupiedSpaces;
-    }
-    public int getOccupiedMotoSpaces(MotorBike[] motorBikes) {
-        for (int i = 0; i<motorBikes.length;i++){
-            if (motorBikes[i]==null) {
-                System.out.println("The Motorcycle lot is empty.");
-            }else if(motorBikes[i]!=null)
-                motoOccupiedSpaces++;
-        }
-        return motoOccupiedSpaces;
-    }
-    public int getAvailableSUVSpaces(SUV[] suvs) {
-        for (int i = 0; i<suvs.length;i++){
-            if (suvs[i]==null) {
-                System.out.println("The Motorcycle lot is empty.");
-            }else if(suvs[i]!=null)
-                suvOccupiedSpaces++;
-        }
-        return suvOccupiedSpaces;
-    }
+//    public int getOccupiedCarSpaces(Car[] car) {
+//        for (int i = 0; i<car.length;i++){
+//            if (car[i]==null) {
+//                System.out.println("Lot is empty");
+//            }else if(car[i]!=null)
+//                carOccupiedSpaces++;
+//            }
+//        return carOccupiedSpaces;
+//    }
+//    public int getOccupiedMotoSpaces(MotorBike[] motorBikes) {
+//        for (int i = 0; i<motorBikes.length;i++){
+//            if (motorBikes[i]==null) {
+//                System.out.println("The Motorcycle lot is empty.");
+//            }else if(motorBikes[i]!=null)
+//                motoOccupiedSpaces++;
+//        }
+//        return motoOccupiedSpaces;
+//    }
+//    public int getAvailableSUVSpaces(SUV[] suvs) {
+//        for (int i = 0; i<suvs.length;i++){
+//            if (suvs[i]==null) {
+//                System.out.println("The Motorcycle lot is empty.");
+//            }else if(suvs[i]!=null)
+//                suvOccupiedSpaces++;
+//        }
+//        return suvOccupiedSpaces;
+//    }
 public void parkVehicle(Vehicle[] spots, Vehicle vehicle) {
     for (int i = 0; i < spots.length; i++) {
         if (spots[i] == null) {
             spots[i] = vehicle;
-            System.out.println("Vehicle with licence plate #" + vehicle.getLicensePlate() + " has been parked at spot #" + getParkingSpotNumber());
+            //System.out.println("Vehicle with licence plate #" + vehicle.getLicensePlate() + " has been parked at spot #" + getParkingSpotNumber());
             break;
         }else System.out.println("Lot is full");
     }
 }
-
-
 
 
 }//ends class
