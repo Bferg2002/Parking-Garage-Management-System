@@ -1,1 +1,18 @@
 #Daily Standup Notes
+Sprint Goal:
+3/16 - Brainstormed app ideas and agreed on a ParkingGarageManager app.
+       Discussed app direction and what we were looking to achieve.
+       Blockers - getting on same page regarding features we wanted to include/overall app scope)
+       Takeaway - none, Sprint Planning stage.
+3/17 - Created UML diagram and assigned tasks based on classes and assigned to developers using on KanBan board.
+       Blockers - assumed UML diagram would be a loose template instead of a firm blueprint so our classes and functionality were
+       not clearly laid out. AI assisted with classes and left some things out that we later had to add.
+       Takeaway- Ensure UML is a detailed and complete as possible before coding.
+3/18 - Clarified features needed for MVP(minimal viable product) of app and tightened up some features/improvements not previously
+       listed on UML.
+       Blockers - maintaining expectations of what we could build in 7 days vs trying to build something innovative/communication and getting
+       on the same page. Worked through differing POVs on app scope.
+3/19 - Worked through majority of story points. Pushed up changes and worked through merge conflicts.
+       Blockers - Merging commits and resolving conflicts.
+3/20 - Worked through JaCoCo testing and bringing classes together. Testing.
+       Blockers - none
