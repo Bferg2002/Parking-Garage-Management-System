@@ -5,30 +5,35 @@ import java.util.ArrayList;
 
 //Class for a person using the parking garage app
 public class User {
+    private String name;
     private int userId;     //the user's id
     private String email;       //the user's email
     private ArrayList<Vehicle> vehicles;    //the list of vehicles that the user has tied to their account
 
-    //Constructor that creates a new user object
-    public User(int userId, String email, ArrayList<Vehicle> vehicles) {
-        this.userId = userId;
+    public User(String name, String email) {
+        this.name = name;
+        this.vehicles = vehicles;
         this.email = email;
-        vehicles = new ArrayList<>();
     }
 
-    //Returns the user's id
-    public int getUserId() {
-        return userId;
+    //Returns the user's name
+    public String getName() {
+        return name;
     }
 
-    //Updates the user's id
-    public void setUserId(int userId) {
-        this.userId = userId;
+    //Updates the user's name
+    public void setName(String name) {
+        this.name = name;
     }
 
     //Returns the user's email
     public String getEmail() {
         return email;
+    }
+
+    // Getter for vehicles
+    public ArrayList<Vehicle> getVehicles() {
+        return vehicles;
     }
 
     //Updates the user's email
@@ -54,18 +59,12 @@ public class User {
 
     //Displays all the vehicles that the user has registered
     public void viewAllRegisteredVehicles() {
-        /*
+
         for (Vehicle vehicle : vehicles){
             System.out.println("*************************");
             System.out.println("Brand: " + vehicle.getBrand() + "Model: " + vehicle.getModel() +
                     "Year: " + vehicle.getYear() + "Color: " + vehicle.getColor());
         }
-         */
-    }
 
-    //Displays the amount of spaces that are currently available in the garage
-    public void viewAvailableSpaces(int availableSpaces){
-        System.out.println("There are " + availableSpaces + " parking spaces left in the garage at this current time.");
     }
-
 }//ends class
