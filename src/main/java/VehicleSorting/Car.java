@@ -1,20 +1,14 @@
 package VehicleSorting;
 
-public class Car extends Vehicle{
+public class Car extends Vehicle {
 
-    public Car(String licencePlate, String model, String brand, int year, String color, double timeSpent, double timeLeft) {
-
-        super(licencePlate, model, brand, year, color, timeSpent, timeLeft, "Car");
-    }
-   @Override
-           public void displayVehicleInfo(){
-        System.out.println("Vehicle type: " + getType()+ "\nCar Id: " + getLicensePlate() + "\n Car Model: " + getModel() + "\n Car Brand: " + getBrand()
-       + "\nCar Year: " + getYear() + "\nCar Color: " + getColor());
+    public Car(String licensePlate, String model, String brand, int year, String color) {
+        super(licensePlate, model, brand, year, color);
     }
 
     @Override
-    public void displayTimeInfo(){
-        System.out.println("Time spent: " + getTimeSpent()+ "\nTime left: " + getTimeLeft());
+    public VehicleType getType() {
+        return VehicleType.CAR;
     }
 
 }

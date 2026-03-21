@@ -1,31 +1,46 @@
 package ParkingGarage;
 
 import VehicleSorting.Vehicle;
+import VehicleSorting.VehicleType;
 
-public class ParkingSpot <T extends Vehicle> {
-    private T vehicle;
-    private String type;
+public class ParkingSpot {
 
-    public ParkingSpot(String type){
-        this.type=type;
+    private Vehicle vehicle;       // null if empty
+    private final VehicleType type;
+
+    public ParkingSpot(VehicleType type) {
+        this.type = type;
     }
-    public boolean isEmpty(){
-        return vehicle==null;
+
+    public boolean isEmpty() {
+        return vehicle == null;
     }
-    public boolean canFit(Vehicle v){
-        return type.equalsIgnoreCase(v.getType());
+
+    public boolean canFit(Vehicle v) {
+        return v.getType() == type && isEmpty();
     }
-    public void park(Vehicle vehicle){
-        this.vehicle=vehicle;
+
+    public void park(Vehicle v) {
+        if (canFit(v)) {
+            this.vehicle = v;
+            System.out.println("Vehicle " + v.getLicensePlate() + " parked.");
+        } else {
+            System.out.println("Cannot park " + v.getLicensePlate() + " in this spot.");
+        }
     }
-    public void removeVehicle(){
-        this.vehicle=null;
+
+    public void removeVehicle() {
+        if (vehicle != null) {
+            System.out.println("Vehicle " + vehicle.getLicensePlate() + " removed from spot.");
+            vehicle = null;
+        }
     }
-    public T getVehicle(){
+
+    public Vehicle getVehicle() {
         return vehicle;
     }
-    public String getType(){
+
+    public VehicleType getType() {
         return type;
     }
-
 }

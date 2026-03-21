@@ -14,5 +14,5 @@ Sprint Goal:
        on the same page. Worked through differing POVs on app scope.
 3/19 - Worked through majority of story points. Pushed up changes and worked through merge conflicts.
        Blockers - Merging commits and resolving conflicts.
-3/20 - Worked through JaCoCo testing and bringing classes together. Testing.
-       Blockers - none
+3/20 - Worked through JaCoCo testing and bringing classes together. Adding finance class. Testing.
+       Blockers - Resolving more merge conflicts and polishing UML diagram to fit class changes.

@@ -1,77 +1,61 @@
 package Finance;
 
-import java.util.ArrayList;
-import java.util.List;
+import VehicleSorting.Vehicle;
+import VehicleSorting.VehicleType;
 
 public class CashRegister {
-        private double currentBalance;
-        private double totalSales;
-        private final List<String> transactionLog;
 
-        public CashRegister() {
-            this.currentBalance = 0.0;
-            this.totalSales = 0.0;
-            this.transactionLog = new ArrayList<>();
-        }
+    // Example hourly rates by vehicle type
+    private static final double CAR_RATE = 5.0;
+    private static final double SUV_RATE = 7.0;
+    private static final double MOTORBIKE_RATE = 3.0;
 
-        // Add a charge (e.g., parking fee)
-        public void addCharge(double amount) {
-            if (amount < 0) {
-                throw new IllegalArgumentException("Charge amount cannot be negative.");
-            }
-            currentBalance += amount;
-            transactionLog.add("Charge added: $" + String.format("%.2f", amount));
-        }
+    // Example fines for unregistered vehicles
+    private static final double CAR_FINE = 50.0;
+    private static final double SUV_FINE = 70.0;
+    private static final double MOTORBIKE_FINE = 30.0;
 
-        // Accept payment from customer
-        public void acceptPayment(double amount) {
-            if (amount <= 0) {
-                throw new IllegalArgumentException("Payment must be greater than zero.");
-            }
-            currentBalance -= amount;
-            totalSales += amount;
-            transactionLog.add("Payment received: $" + String.format("%.2f", amount));
-        }
-
-        // Calculate change owed to customer
-        public double giveChange() {
-            if (currentBalance >= 0) {
-                return 0.0; // no change owed
-            }
-            double change = Math.abs(currentBalance);
-            transactionLog.add("Change given: $" + String.format("%.2f", change));
-            currentBalance = 0.0;
-            return change;
-        }
-
-        // Get current balance (positive = customer owes, negative = change owed)
-        public double getCurrentBalance() {
-            return currentBalance;
-        }
-
-        // Get total sales for reporting
-        public double getTotalSales() {
-            return totalSales;
-        }
-
-        // Reset register (e.g., new customer)
-        public void clear() {
-            currentBalance = 0.0;
-            transactionLog.add("Register cleared.");
-        }
-
-        // View transaction history
-        public List<String> getTransactionLog() {
-            return transactionLog;
-        }
-
-        // Print receipt
-        public void printReceipt() {
-            System.out.println("----- Receipt -----");
-            for (String entry : transactionLog) {
-                System.out.println(entry);
-            }
-            System.out.println("-------------------");
-        }
+    /**
+     * Calculate parking fee based on vehicle type and hours parked
+     * @param vehicleType type of vehicle
+     * @param hours number of hours parked
+     * @return fee amount
+     */
+    public static double calculateFee(VehicleType vehicleType, int hours) {
+        return switch (vehicleType) {
+            case CAR -> CAR_RATE * hours;
+            case SUV -> SUV_RATE * hours;
+            case MOTORBIKE -> MOTORBIKE_RATE * hours;
+            default -> throw new IllegalArgumentException("Unknown vehicle type: " + vehicleType);
+        };
     }
 
+    /**
+     * Calculate fine for unregistered vehicle based on type
+     * @param vehicleType type of vehicle
+     * @return fine amount
+     */
+    public static double calculateFine(VehicleType vehicleType) {
+        return switch (vehicleType) {
+            case CAR -> CAR_FINE;
+            case SUV -> SUV_FINE;
+            case MOTORBIKE -> MOTORBIKE_FINE;
+            default -> throw new IllegalArgumentException("Unknown vehicle type: " + vehicleType);
+        };
+    }
+
+    /**
+     * Optionally, print a detailed charge summary with 2 decimal places
+     */
+    public static void printChargeSummary(Vehicle vehicle, int hours, boolean registered) {
+        if (registered) {
+            double fee = calculateFee(vehicle.getType(), hours);
+            System.out.printf("Vehicle %s parked for %d hours. Fee: $%.2f%n",
+                    vehicle.getLicensePlate(), hours, fee);
+        } else {
+            double fine = calculateFine(vehicle.getType());
+            System.out.printf("Vehicle %s is not registered. Fine: $%.2f%n",
+                    vehicle.getLicensePlate(), fine);
+        }
+    }
+}
