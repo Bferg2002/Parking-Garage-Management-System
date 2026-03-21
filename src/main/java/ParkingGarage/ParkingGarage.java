@@ -18,7 +18,7 @@ public class ParkingGarage {
         for (int i = 0; i < 50; i++) {
             spots[i] = new ParkingSpot<>("Car");
         }
-        // 20 truck spots
+        // 20 SUV spots
         for (int i = 50; i < 70; i++) {
             spots[i] = new ParkingSpot<>("SUV");
         }
@@ -126,6 +126,7 @@ public class ParkingGarage {
 //        }
 //        return suvOccupiedSpaces;
 //    }
+
 public void parkVehicle(Vehicle[] spots, Vehicle vehicle) {
     for (int i = 0; i < spots.length; i++) {
         if (spots[i] == null) {
