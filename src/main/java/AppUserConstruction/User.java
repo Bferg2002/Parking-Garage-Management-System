@@ -4,27 +4,20 @@ import VehicleSorting.Vehicle;
 import java.util.ArrayList;
 
 //Class for a person using the parking garage app
-public class User {
-    private String name;
+public class User extends Person{
+
     private int userId;     //the user's id
     private String email;       //the user's email
     private ArrayList<Vehicle> vehicles;    //the list of vehicles that the user has tied to their account
 
     public User(String name, String email) {
-        this.name = name;
-        this.vehicles = vehicles;
+        super(name);
+        this.vehicles = new ArrayList<>();
         this.email = email;
     }
 
-    //Returns the user's name
-    public String getName() {
-        return name;
-    }
 
-    //Updates the user's name
-    public void setName(String name) {
-        this.name = name;
-    }
+
 
     //Returns the user's email
     public String getEmail() {
@@ -53,8 +46,8 @@ public class User {
 
     //Updates the vehicle color and license plate information
     public void updateVehicleInfo(Vehicle vehicle, String licensePlate, String color){
-      //  vehicle.setColor(color);
-        //  vehicle.setLicensePlate(licensePlate);
+        vehicle.setColor(color);
+          vehicle.setLicensePlate(licensePlate);
     }
 
     //Displays all the vehicles that the user has registered
