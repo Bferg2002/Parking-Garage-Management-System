@@ -26,7 +26,6 @@ public class CashRegister {
             case CAR -> CAR_RATE * hours;
             case SUV -> SUV_RATE * hours;
             case MOTORBIKE -> MOTORBIKE_RATE * hours;
-            default -> throw new IllegalArgumentException("Unknown vehicle type: " + vehicleType);
         };
     }
 
@@ -40,7 +39,6 @@ public class CashRegister {
             case CAR -> CAR_FINE;
             case SUV -> SUV_FINE;
             case MOTORBIKE -> MOTORBIKE_FINE;
-            default -> throw new IllegalArgumentException("Unknown vehicle type: " + vehicleType);
         };
     }
 

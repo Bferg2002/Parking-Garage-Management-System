@@ -12,7 +12,7 @@ public class User {
 
     public User(String name, String email) {
         this.name = name;
-        this.vehicles = vehicles;
+        this.vehicles = new ArrayList<>();
         this.email = email;
     }
 
