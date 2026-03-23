@@ -55,8 +55,8 @@ public class User extends Person{
 
         for (Vehicle vehicle : vehicles){
             System.out.println("*************************");
-            System.out.println("Brand: " + vehicle.getBrand() + "Model: " + vehicle.getModel() +
-                    "Year: " + vehicle.getYear() + "Color: " + vehicle.getColor());
+            System.out.println("Brand: " + vehicle.getBrand() + " Model: " + vehicle.getModel() +
+                    " Year: " + vehicle.getYear() + " Color: " + vehicle.getColor());
         }
 
     }
