@@ -1,5 +1,6 @@
 package ParkingGarage;
 
+import AppUserConstruction.User;
 import VehicleSorting.Car;
 import VehicleSorting.MotorBike;
 import VehicleSorting.SUV;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -62,11 +64,71 @@ class ParkingGarageTest {
     }
 
     @Test
+    void parkVehicle_DuplicateVehiclePrintsWarning() {
+        ParkingGarage garage = new ParkingGarage();
+        SUV suv = new SUV("SV-1", "X5", "BMW", 2022, "Gray");
+
+        garage.parkVehicle(suv);
+
+        String out = captureStdout(() -> garage.parkVehicle(suv));
+
+        assertTrue(out.contains("already parked"));
+    }
+
+    @Test
+    void parkVehicle_NoAvailableSpots() {
+        ParkingGarage garage = new ParkingGarage();
+
+        // Fill all SUV spots (20 spots: index 50–69)
+        for (int i = 0; i < 20; i++) {
+            garage.parkVehicle(new SUV("SV-" + i, "X5", "BMW", 2022, "Gray"));
+        }
+
+        String out = captureStdout(() ->
+                garage.parkVehicle(new SUV("FULL-1", "X5", "BMW", 2022, "Gray"))
+        );
+
+        assertTrue(out.contains("No available spots"));
+    }
+
+    @Test
+    void parkVehicleWithHours_CoversMethod() {
+        ParkingGarage garage = new ParkingGarage();
+        SUV suv = new SUV("SV-100", "X5", "BMW", 2022, "Gray");
+
+        garage.parkVehicleWithHours(suv, 4);
+
+        assertEquals(4, garage.getHoursParked("SV-100"));
+    }
+
+    @Test
+    void removeVehicle_NotFoundPrintsMessage() {
+        ParkingGarage garage = new ParkingGarage();
+
+        String out = captureStdout(() ->
+                garage.removeVehicle("DOES-NOT-EXIST")
+        );
+
+        assertTrue(out.contains("not found"));
+    }
+
+
+    @Test
     void displayGarageStatusPrintsOccupied() {
         ParkingGarage garage = new ParkingGarage();
-        garage.parkVehicle(new SUV("SV-1", "X5", "BMW", 2022, "Gray"));
-        String out = captureStdout(garage::displayGarageStatus);
-        assertTrue(out.contains("Garage Status"));
+
+        SUV suv = new SUV("SV-1", "X5", "BMW", 2022, "Gray");
+        garage.parkVehicle(suv);
+
+        User user = new User("Jordan", "j@example.com");
+        user.registerVehicle(suv);
+
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user);
+
+        String out = captureStdout(() -> garage.displayGarageStatus(users));
+
+        assertTrue(out.contains("GARAGE STATUS"));
         assertTrue(out.contains("SV-1"));
     }
 
