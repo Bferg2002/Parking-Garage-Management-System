@@ -1,0 +1,21 @@
+# Sprint Retrospective – ParkingGarageManager
+
+## Sprint Goal
+The goal of this sprint was to develop a functional Parking Garage Manager application for privately owned parking garages, featuring both employee and customer-facing functionality based on user login roles. The application aimed to include a clear minimum viable product (MVP), structured class design, and core features tailored to each user type within a 7-day timeframe.
+## What Went Well
+The team demonstrated strong collaboration early on by successfully brainstorming and agreeing on a unified project idea. Task organization was effective, as we created a UML diagram and used a Kanban board to assign responsibilities across the team. Throughout the sprint, we showed adaptability by refining features and improving our understanding of the application as development progressed. Despite challenges, we were able to complete the majority of our story points within the limited timeframe. We also integrated testing using JaCoCo and worked toward improving code quality. By the end of the sprint, the team aligned well and finalized both the codebase and presentation.
+
+## What Didn’t Go Well
+One of the main challenges was the lack of clarity in our initial UML design. It was treated as a loose guideline rather than a strict blueprint, which led to missing components and required rework later in the sprint. We also struggled with scope management, as the team initially aimed for more complex and innovative features rather than focusing strictly on a realistic MVP. This led to differing expectations among team members. Additionally, we encountered frequent merge conflicts while using Git, particularly due to folder restructuring and overlapping changes. Communication gaps early in the sprint also contributed to delays in aligning on the overall direction and feature set.
+
+## Blockers
+The team faced several blockers throughout the sprint, including difficulty aligning on application scope and features, an incomplete UML design, and repeated merge conflicts caused by Git workflow issues. Time constraints also posed a challenge, as we had to balance ambitious goals with what could realistically be accomplished within seven days.
+
+## What We Learned
+We learned the importance of creating a detailed and finalized UML diagram before beginning development, as it serves as the foundation for the entire project. Defining and committing to a clear MVP early in the sprint is essential to avoid scope creep. Effective communication among team members is critical, especially during the initial stages. We also recognized the importance of maintaining a disciplined Git workflow to minimize conflicts. Finally, we learned that large structural changes, such as reorganizing folders, should be avoided during active development.
+
+## What We’ll Do Differently Next Time
+In future sprints, we will ensure that the UML diagram is fully detailed and agreed upon before coding begins. We will clearly define the MVP on the first day and align as a team on realistic expectations. We also plan to establish clear Git workflow guidelines, such as pulling changes before pushing and avoiding major refactors mid-sprint. Tasks will be broken down into smaller, more manageable story points, and we will hold consistent daily check-ins to maintain alignment and improve communication.
+
+## Overall Reflection
+Overall, the team successfully delivered a working application within a tight deadline while navigating challenges related to planning, communication, and version control. Although there were obstacles early in the sprint, the team adapted quickly, improved collaboration, and ultimately met the sprint goals.
