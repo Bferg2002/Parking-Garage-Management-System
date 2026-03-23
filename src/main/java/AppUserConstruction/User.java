@@ -53,8 +53,8 @@ public class User {
 
     //Updates the vehicle color and license plate information
     public void updateVehicleInfo(Vehicle vehicle, String licensePlate, String color){
-      //  vehicle.setColor(color);
-        //  vehicle.setLicensePlate(licensePlate);
+        vehicle.setColor(color);
+          vehicle.setLicensePlate(licensePlate);
     }
 
     //Displays all the vehicles that the user has registered
@@ -62,8 +62,8 @@ public class User {
 
         for (Vehicle vehicle : vehicles){
             System.out.println("*************************");
-            System.out.println("Brand: " + vehicle.getBrand() + "Model: " + vehicle.getModel() +
-                    "Year: " + vehicle.getYear() + "Color: " + vehicle.getColor());
+            System.out.println("Brand: " + vehicle.getBrand() + " Model: " + vehicle.getModel() +
+                    " Year: " + vehicle.getYear() + " Color: " + vehicle.getColor());
         }
 
     }

@@ -4,21 +4,11 @@ import Finance.CashRegister;
 import VehicleSorting.Vehicle;
 import java.util.ArrayList;
 
-public class Employee {
-    private String name;
+public class Employee extends Person {
 
     // Constructor
     public Employee(String name) {
-        this.name = name;
-    }
-
-    // Getter/Setter
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        super(name);
     }
 
     /**
