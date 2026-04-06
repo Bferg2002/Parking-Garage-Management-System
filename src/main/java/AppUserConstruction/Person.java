@@ -1,6 +1,7 @@
 package AppUserConstruction;
 
 public abstract class Person {
+    //Instance variable representing a person's name
     private String name;
 
     public Person() {
